@@ -1,0 +1,214 @@
+:root{
+  --black:#000;
+  --white:#fff;
+  --dark-gray:#2e2e2e;
+  --blue:#1f6bff;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+body{
+  font-family:Inter,Arial,sans-serif;
+  background:radial-gradient(1200px 600px at top center,#0a0a0a,#000);
+  color:var(--white);
+  line-height:1.6;
+}
+
+a{color:var(--blue);text-decoration:none}
+
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+.narrow{max-width:700px}
+
+.header{
+  position:sticky;
+  top:0;
+  background:linear-gradient(180deg,#000,#050505);
+  border-bottom:1px solid var(--dark-gray);
+  z-index:1000;
+}
+
+.header-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  height:70px;
+}
+
+.logo{font-weight:700;font-size:1.2rem}
+
+.nav{display:flex}
+.nav a{margin-left:24px;color:var(--white);font-size:.95rem}
+.nav-cta{color:var(--blue)}
+
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  background:none;
+  border:none;
+}
+.hamburger span{
+  width:22px;
+  height:2px;
+  background:var(--white);
+}
+
+.hero{
+  padding:130px 0;
+  background:linear-gradient(180deg,rgba(31,107,255,.06),transparent);
+}
+
+.hero-content{max-width:720px}
+.hero h1{font-size:3rem;line-height:1.2;margin-bottom:16px}
+.hero h2{font-size:1.6rem;color:#c9c9c9;margin-bottom:20px}
+.hero p{color:#c9c9c9;margin-bottom:36px}
+
+.hero-cta{display:flex}
+
+.section{padding:110px 0}
+.section-dark{background:linear-gradient(180deg,#0a0a0a,#000)}
+
+.section h3{font-size:2rem;margin-bottom:44px}
+
+.skills-grid,.projects-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:36px;
+}
+
+.skill-card,.project-card{
+  padding:30px;
+  background:linear-gradient(180deg,#050505,#000);
+  border:1px solid var(--dark-gray);
+  border-radius:8px;
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
+  transition:.3s ease;
+}
+
+.skill-card:hover,.project-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 18px 45px rgba(0,0,0,.6);
+}
+
+.skill-card ul{list-style:none}
+.skill-card li{margin-bottom:8px;color:#d0d0d0}
+
+.cta-section{
+  padding:120px 0;
+  text-align:center;
+  background:radial-gradient(500px 220px at center,rgba(31,107,255,.08),transparent);
+}
+
+.cta-content{
+  max-width:600px;
+}
+
+.cta-content p{
+  margin:16px 0 32px;
+  color:#cfcfcf;
+}
+
+.contact-heading{text-align:center}
+
+.contact-form{
+  margin:40px auto 30px;
+  max-width:520px;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+.contact-form label{
+  display:flex;
+  flex-direction:column;
+  font-size:.9rem;
+}
+
+.contact-form input,
+.contact-form textarea{
+  margin-top:8px;
+  padding:12px;
+  background:#000;
+  border:1px solid var(--dark-gray);
+  color:var(--white);
+  border-radius:4px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+  outline:none;
+  border-color:var(--blue);
+  box-shadow:0 0 0 2px rgba(31,107,255,.15);
+}
+
+.form-btn{
+  align-self:center;
+  margin-top:10px;
+}
+
+.btn-primary{
+  background:var(--blue);
+  color:var(--white);
+  padding:14px 36px;
+  border:none;
+  cursor:pointer;
+  font-weight:600;
+  border-radius:6px;
+  box-shadow:0 10px 25px rgba(31,107,255,.35);
+  transition:.3s ease;
+}
+
+.btn-primary:hover{
+  transform:translateY(-2px) scale(1.03);
+  box-shadow:0 14px 35px rgba(31,107,255,.5);
+}
+
+.social-links{
+  text-align:center;
+  margin-top:20px;
+}
+.social-links a{margin:0 10px}
+
+.footer{
+  border-top:1px solid var(--dark-gray);
+  padding:32px 0;
+  text-align:center;
+  font-size:.85rem;
+  color:#aaa;
+}
+
+/* Animations */
+.fade-in{animation:fadeUp .8s ease}
+.reveal{opacity:0;transform:translateY(24px);transition:.7s ease}
+.reveal.active{opacity:1;transform:none}
+.pulse{animation:pulse 2.5s infinite}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:none}
+}
+@keyframes pulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.04)}
+}
+
+/* Mobile */
+@media(max-width:768px){
+  .hamburger{display:flex}
+  .nav{
+    position:absolute;
+    top:70px;
+    right:0;
+    background:#000;
+    flex-direction:column;
+    width:220px;
+    display:none;
+    border-left:1px solid var(--dark-gray);
+    box-shadow:-10px 0 30px rgba(0,0,0,.6);
+  }
+  .nav.active{display:flex}
+  .nav a{margin:16px}
+  .hero h1{font-size:2.2rem}
+  .hero-cta{justify-content:center}
+}
